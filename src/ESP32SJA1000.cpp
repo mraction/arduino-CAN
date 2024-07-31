@@ -347,8 +347,9 @@ int ESP32SJA1000Class::filterExtended(long id, long mask)
 
 int ESP32SJA1000Class::observe()
 {
-  modifyRegister(REG_MOD, 0x17, 0x01); // reset
-  modifyRegister(REG_MOD, 0x17, 0x02); // observe
+  modifyRegister(REG_MOD, 0x0f, 0x01); // reset
+  modifyRegister(REG_MOD, 0x0f, 0x02); // observe
+  modifyRegister(REG_MOD, 0x0e, 0x00); // operate
 
   return 1;
 }
